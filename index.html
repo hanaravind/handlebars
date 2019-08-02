@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>handlebars</title>
+    <script src="handlebars-v4.1.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
+</head>
+<body>
+         
+        <div id="result">
+
+        </div>
+        <script id="text-template" type="text/x-handlebars-template">
+            {{#if names}}
+            {{#each names}}
+           <p>hello {{name}}</p>
+           {{/each}}
+           {{else}}
+           nothing is present
+           {{/if}}
+          </script>
+        <script>
+      var content = document.getElementById('text-template').innerHTML;
+      var compile = Handlebars.compile(content);
+      data = {
+          names:[
+               {
+                 name:'suraj'
+                },
+                {
+                name:'aravind'
+                }
+          ]
+          
+      }
+      var context = compile(data);
+      document.getElementById('result').innerHTML = context
+       
+        </script>
+</body>
+</html>
